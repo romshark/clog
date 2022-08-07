@@ -1,0 +1,39 @@
+[[display]]
+# Used to visually separate outputs, "" for no visual separation.
+separator = "---\n"
+
+[[style]]
+level-debug = "fg-higreen bold"
+level-info = "fg-green bold"
+level-warn = "fg-yellow bold"
+level-error = "fg-hired bold"
+level-fatal = "fg-red bold"
+time = "fg-hiblack"
+message = ""
+caller = "fg-hiblack"
+string-quotes = "fg-hiblack"
+key = "fg-hiblue"
+value = ""
+array-head = "fg-hiblack"
+array-list-prefix = "fg-hiblack"
+separator = ""
+
+[[format]]
+# https://pkg.go.dev/time#pkg-constants
+time = "Mon, 02 Jan 2006 15:04:05 MST"
+string-quotes = "\"" # or empty string for none
+array = "list" # or "raw" for raw uninterpreted string
+array-list-prefix = "- %d:" # where %d is the index placeholder
+
+[[level]]
+debug = "debug"
+info = "info"
+warn = "warn"
+error = "error"
+fatal = "fatal"
+
+[[field]]
+message = "msg"
+time = "time"
+caller = "caller"
+level = "level"
