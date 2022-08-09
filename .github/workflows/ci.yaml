@@ -1,5 +1,5 @@
-on: [push, pull_request]
 name: CI
+on: [push, pull_request]
 jobs:
   build-test-lint:
     runs-on: ubuntu-latest
@@ -12,21 +12,21 @@ jobs:
           cache: true
       - run: go version
 
-    # TESTS
+      # TESTS
 
-    # Run all tests
-    - name: Test
-      run: go test -v -race ./...
+      # Run all tests
+      - name: Test
+        run: go test -v -race ./...
 
-    # TEST COVERAGE
+      # TEST COVERAGE
 
-    - name: Calculate coverage
-      run: |
-        go test -v -covermode=count -coverprofile=coverage.out
-    - name: Convert coverage.out to coverage.lcov
-      uses: jandelgado/gcov2lcov-action@v1
-    - name: Coveralls
-      uses: coverallsapp/github-action@v1.1.2
-      with:
-        github-token: ${{ secrets.github_token }}
-        path-to-lcov: coverage.lcov
+      - name: Calculate coverage
+        run: |
+          go test -v -covermode=count -coverprofile=coverage.out
+      - name: Convert coverage.out to coverage.lcov
+        uses: jandelgado/gcov2lcov-action@v1
+      - name: Coveralls
+        uses: coverallsapp/github-action@v1.1.2
+        with:
+          github-token: ${{ secrets.github_token }}
+          path-to-lcov: coverage.lcov
